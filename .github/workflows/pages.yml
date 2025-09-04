@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [ main ]
-  workflow_dispatch:  # manual Run workflow button
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -19,29 +19,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-          # (No cache here, since you don't have a lockfile)
-
-      # Install dependencies without a lockfile
       - run: npm install
-
-      # Build (CRACO present in your repo)
-      # CI=false prevents CRA/CRACO from failing on warnings in GitHub CI
+      # Avoid CRA warnings failing CI
       - run: CI=false npm run build
-      - uses: actions/configure-pages@v5   # <-- add this line
 
-      # Package artifact for Pages
-      - run: |
-          mkdir dist
-          cp -R build/* dist/
-          echo "www.blakegillespie.org" > dist/CNAME
+      # Put your custom domain in the *build* folder (the site root)
+      - run: echo "www.blakegillespie.org" > build/CNAME
 
+      - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: build   # <— publish the build/ folder as-is
 
   deploy:
     needs: build
