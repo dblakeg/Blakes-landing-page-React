@@ -1,13 +1,13 @@
-- run: CI=false npm run build
+run: CI=false npm run build
 
-      - uses: actions/configure-pages@v5   # <-- add this line
+      uses: actions/configure-pages@v5   # <-- add this line
 
-      - run: |
+      run: |
           mkdir dist
           cp -R build/* dist/
           echo "www.blakegillespie.org" > dist/CNAME
 
-      - uses: actions/upload-pages-artifact@v3
+      uses: actions/upload-pages-artifact@v3
         with:
           path: dist
 
