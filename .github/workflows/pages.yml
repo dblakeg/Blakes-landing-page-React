@@ -1,16 +1,3 @@
-run: CI=false npm run build
-
-      uses: actions/configure-pages@v5   # <-- add this line
-
-      run: |
-          mkdir dist
-          cp -R build/* dist/
-          echo "www.blakegillespie.org" > dist/CNAME
-
-      uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
-
 name: Deploy to GitHub Pages
 
 on:
@@ -44,6 +31,7 @@ jobs:
       # Build (CRACO present in your repo)
       # CI=false prevents CRA/CRACO from failing on warnings in GitHub CI
       - run: CI=false npm run build
+      - uses: actions/configure-pages@v5   # <-- add this line
 
       # Package artifact for Pages
       - run: |
