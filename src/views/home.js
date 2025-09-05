@@ -50,7 +50,14 @@ const Home = (props) => {
         </div>
       </div>
       <div className="home-hero">
-        <span className="home-text">Blake Gillespie, PhD</span>
+        <span className="home-text1">
+          <span>Blake Gillespie, PhD</span>
+          <br></br>
+          <span>Professor of Biochemsitry</span>
+          <br></br>
+          <span>CSUCI</span>
+          <br></br>
+        </span>
         <img
           alt="image"
           src="/blake's images/blake1-600w.png"

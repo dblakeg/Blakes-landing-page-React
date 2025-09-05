@@ -159,8 +159,10 @@
   align-items: flex-start;
 }
  
-.home-text {
+.home-text1 {
   font-size: 45px;
+  align-self: flex-start;
+  text-align: center;
 }
  
 .home-image2 {
