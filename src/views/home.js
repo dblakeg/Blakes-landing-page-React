@@ -49,20 +49,24 @@ const Home = (props) => {
           </div>
         </div>
       </div>
-      <div className="home-hero">
+      <div className="home-container3">
         <span className="home-text1">
-          <span>Blake Gillespie, PhD</span>
-          <br></br>
-          <span>Professor of Biochemsitry</span>
-          <br></br>
-          <span>CSUCI</span>
+          <span className="home-text2">Blake Gillespie, PhD</span>
+          <br className="home-text3"></br>
+          <span className="home-text4">Professor of Biochemistry</span>
+          <br className="home-text5"></br>
+          <span className="home-text6">Cal State Channel Islands</span>
           <br></br>
         </span>
-        <img
-          alt="image"
-          src="/blake's images/blake1-600w.png"
-          className="home-image2"
-        />
+        <div className="home-container4">
+          <div className="home-hero">
+            <img
+              alt="image"
+              src="/blake's images/blake1-600w.png"
+              className="home-image2"
+            />
+          </div>
+        </div>
       </div>
     </div>
   )
